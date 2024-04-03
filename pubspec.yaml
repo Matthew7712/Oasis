@@ -87,6 +87,7 @@ flutter:
   assets:
     - assets/image/
     - assets/image/sign/
+    - assets/image/greeting/
   fonts:
     - family: Montserrat, Lato
       fonts:

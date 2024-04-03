@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oasis/views/ui/greeting.dart';
 
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
@@ -70,7 +71,18 @@ class SignUp extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Button(text: "Register", event: (){}),
+                    Button(text: "Register", event: (){
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          transitionDuration: const Duration(milliseconds: 500),
+                          pageBuilder: (_, __, ___) => const GreetingScreen(),
+                          transitionsBuilder: (_, animation, __, child) {
+                            return FadeTransition(opacity: animation, child: child,);
+                          },
+                        ),
+                      );
+                    }),
                     SizedBox(height: Dimensions.height25,),
                     DefaultText(text: "Have an account? Sign In", color: AppColors.inputTextColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400),
                   ],

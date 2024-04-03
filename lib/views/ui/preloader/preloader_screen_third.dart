@@ -1,6 +1,3 @@
-import 'dart:async';
-
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:oasis/views/shared/default_text.dart';
 import 'package:oasis/views/shared/dots.dart';

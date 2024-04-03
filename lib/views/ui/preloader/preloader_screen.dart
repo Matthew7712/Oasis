@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oasis/services/dimensions.dart';
 import 'package:oasis/views/shared/default_text.dart';

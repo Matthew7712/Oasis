@@ -12,7 +12,6 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin{
   Color _backgroundColor = const Color(0xFF528B88);
   int currentHour = DateTime.now().hour;
-  double _interpolationValue = 0.0;
 
   void _updateBackgroundColor(){
     if(currentHour > 6 && currentHour <= 9){
@@ -24,7 +23,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     } else{
       _backgroundColor = const Color.fromRGBO(24, 75, 79, 1);
     }
-    print(currentHour);
   }
 
   @override
