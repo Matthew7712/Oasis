@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:oasis/controllers/auth_controller.dart';
 import 'package:oasis/services/appcolors.dart';
 import 'package:oasis/views/shared/button.dart';
 import 'package:oasis/views/shared/default_text.dart';
@@ -24,7 +25,9 @@ class GreetingScreen extends StatelessWidget {
               SizedBox(height: Dimensions.height10 - 2,),
               DefaultText(text: "your account is complete, please enjoy the best menu from us.", color: AppColors.textColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400, textAlign: TextAlign.center,),
               SizedBox(height: Dimensions.height50,),
-              Button(text: "Get started", event: (){})
+              Button(text: "Get started", event: (){
+                AuthController.instance.logOut();
+              })
             ],
           ),
         ),

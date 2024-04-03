@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:oasis/controllers/auth_controller.dart';
 import 'package:oasis/views/ui/greeting.dart';
 
 import '../../../services/appcolors.dart';
@@ -13,6 +15,9 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var nameController = TextEditingController();
+    var emailController = TextEditingController();
+    var passwordController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -46,7 +51,7 @@ class SignUp extends StatelessWidget {
                   children: [
                     TitleText(title: "Name", color: AppColors.titleColor, fontSize: Dimensions.font14, fontWeight: FontWeight.w500),
                     SizedBox(height: Dimensions.height10 - 2,),
-                    const InputField(hintText: "Your name",),
+                    InputField(hintText: "Your name", controller: nameController,),
                   ],
                 ),
                 SizedBox(height: Dimensions.height20,),
@@ -55,7 +60,7 @@ class SignUp extends StatelessWidget {
                   children: [
                     TitleText(title: "Email", color: AppColors.titleColor, fontSize: Dimensions.font14, fontWeight: FontWeight.w500),
                     SizedBox(height: Dimensions.height10 - 2,),
-                    const InputField(hintText: "Your email",),
+                    InputField(hintText: "Your email", controller: emailController,),
                   ],
                 ),
                 SizedBox(height: Dimensions.height20,),
@@ -64,7 +69,7 @@ class SignUp extends StatelessWidget {
                   children: [
                     TitleText(title: "Password", color: AppColors.titleColor, fontSize: Dimensions.font14, fontWeight: FontWeight.w500),
                     SizedBox(height: Dimensions.height10 - 2,),
-                    const InputField(hintText: "Your password",),
+                    InputField(hintText: "Your password", controller: passwordController,),
                   ],
                 ),
                 SizedBox(height: Dimensions.height25,),
@@ -72,19 +77,27 @@ class SignUp extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Button(text: "Register", event: (){
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          transitionDuration: const Duration(milliseconds: 500),
-                          pageBuilder: (_, __, ___) => const GreetingScreen(),
-                          transitionsBuilder: (_, animation, __, child) {
-                            return FadeTransition(opacity: animation, child: child,);
-                          },
-                        ),
-                      );
+                      AuthController.instance.register(emailController.text.trim(), passwordController.text.trim());
+                      // Navigator.push(
+                      //   context,
+                      //   PageRouteBuilder(
+                      //     transitionDuration: const Duration(milliseconds: 500),
+                      //     pageBuilder: (_, __, ___) => const GreetingScreen(),
+                      //     transitionsBuilder: (_, animation, __, child) {
+                      //       return FadeTransition(opacity: animation, child: child,);
+                      //     },
+                      //   ),
+                      // );
                     }),
                     SizedBox(height: Dimensions.height25,),
-                    DefaultText(text: "Have an account? Sign In", color: AppColors.inputTextColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400),
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(text: "Have an account?", style: TextStyle(color: AppColors.textColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400)),
+                          TextSpan(text: " Sign In", style: TextStyle(color: AppColors.mainColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400)),
+                        ],
+                      ),
+                    ),
                   ],
                 )
               ],

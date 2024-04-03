@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:oasis/controllers/auth_controller.dart';
 import 'package:oasis/views/shared/button.dart';
 import 'package:oasis/views/shared/default_text.dart';
 import 'package:oasis/views/shared/input/input_field.dart';
@@ -15,6 +16,8 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var emailController = TextEditingController();
+    var passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -42,7 +45,7 @@ class SignIn extends StatelessWidget {
                   children: [
                     TitleText(title: "Email", color: AppColors.titleColor, fontSize: Dimensions.font14, fontWeight: FontWeight.w500),
                     SizedBox(height: Dimensions.height10 - 2,),
-                    const InputField(hintText: "Your email",),
+                    InputField(hintText: "Your email", controller: emailController,),
                   ],
                 ),
                 SizedBox(height: Dimensions.height20,),
@@ -51,13 +54,15 @@ class SignIn extends StatelessWidget {
                   children: [
                     TitleText(title: "Password", color: AppColors.titleColor, fontSize: Dimensions.font14, fontWeight: FontWeight.w500),
                     SizedBox(height: Dimensions.height10 - 2,),
-                    const InputField(hintText: "Your password",),
+                    InputField(hintText: "Your password", controller: passwordController,),
                     SizedBox(height: Dimensions.height15,),
                     DefaultText(text: "Forgot password ?", color: AppColors.mainColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400),
                   ],
                 ),
                 SizedBox(height: Dimensions.height25,),
-                Button(text: "Sign in", event: (){}),
+                Button(text: "Sign in", event: (){
+                  AuthController.instance.login(emailController.text.trim(), passwordController.text.trim());
+                }),
                 SizedBox(height: Dimensions.height25,),
                 Column(
                   children: [
@@ -74,7 +79,14 @@ class SignIn extends StatelessWidget {
                           ),
                         );
                       },
-                        child: DefaultText(text: "Don’t have an account? Sign Up", color: AppColors.inputTextColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400)
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(text: "Don’t have an account?", style: TextStyle(color: AppColors.textColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400)),
+                            TextSpan(text: " Sign Up", style: TextStyle(color: AppColors.mainColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400)),
+                          ],
+                        ),
+                      ),
                     ),
                     SizedBox(height: Dimensions.height25,),
                     DefaultText(text: "Or with", color: AppColors.inputTextColor, fontSize: Dimensions.font14, fontWeight: FontWeight.w400),

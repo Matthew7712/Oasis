@@ -5,7 +5,8 @@ import '../../../services/dimensions.dart';
 
 class InputField extends StatefulWidget {
   final String hintText;
-  const InputField({super.key, required this.hintText});
+  final TextEditingController controller;
+  const InputField({super.key, required this.hintText, required this.controller});
 
   @override
   State<InputField> createState() => _InputFieldState();
@@ -16,6 +17,7 @@ class _InputFieldState extends State<InputField> {
   Widget build(BuildContext context) {
     return TextField(
       textAlign: TextAlign.start,
+      controller: widget.controller,
       style: TextStyle(
         fontSize: Dimensions.font16,
         fontWeight: FontWeight.w400,

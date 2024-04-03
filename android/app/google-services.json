@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1054546994867",
+    "project_id": "oasis-d0da1",
+    "storage_bucket": "oasis-d0da1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054546994867:android:4cd39d899432a686fc32c6",
+        "android_client_info": {
+          "package_name": "com.example.oasis"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD30PvOb8FGGC5N32gGr6MLh8tszwHvLzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
