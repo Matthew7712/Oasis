@@ -6,7 +6,8 @@ import '../../../services/dimensions.dart';
 class InputField extends StatefulWidget {
   final String hintText;
   final TextEditingController controller;
-  const InputField({super.key, required this.hintText, required this.controller});
+  final bool obscureText;
+  const InputField({super.key, required this.hintText, required this.controller, this.obscureText = false});
 
   @override
   State<InputField> createState() => _InputFieldState();
@@ -16,6 +17,7 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      obscureText: widget.obscureText,
       textAlign: TextAlign.start,
       controller: widget.controller,
       style: TextStyle(

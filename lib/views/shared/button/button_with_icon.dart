@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oasis/views/shared/title_text.dart';
 
-import '../../services/appcolors.dart';
-import '../../services/dimensions.dart';
+import '../../../services/appcolors.dart';
+import '../../../services/dimensions.dart';
 
 class ButtonWithIcon extends StatelessWidget {
   final String text;

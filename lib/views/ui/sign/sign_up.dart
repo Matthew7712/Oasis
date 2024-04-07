@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:oasis/controllers/auth_controller.dart';
-import 'package:oasis/views/ui/greeting.dart';
-
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
-import '../../shared/button.dart';
+import '../../shared/button/button.dart';
 import '../../shared/default_text.dart';
 import '../../shared/input/input_field.dart';
+import '../../shared/input/input_field_with_icon.dart';
 import '../../shared/title_text.dart';
 
 class SignUp extends StatelessWidget {
@@ -69,7 +67,7 @@ class SignUp extends StatelessWidget {
                   children: [
                     TitleText(title: "Password", color: AppColors.titleColor, fontSize: Dimensions.font14, fontWeight: FontWeight.w500),
                     SizedBox(height: Dimensions.height10 - 2,),
-                    InputField(hintText: "Your password", controller: passwordController,),
+                    InputFieldWithIcon(hintText: "Your password", prefixOrSuffix: false, iconData: const Icon(Icons.password), controller: passwordController, obscureText: true,),
                   ],
                 ),
                 SizedBox(height: Dimensions.height25,),

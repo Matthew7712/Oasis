@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oasis/services/dimensions.dart';
-import '../../services/appcolors.dart';
+import '../../../services/appcolors.dart';
 
 class Button extends StatelessWidget {
   final String text;
