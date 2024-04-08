@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:oasis/views/shared/default_text.dart';
-import 'package:oasis/views/shared/dots.dart';
-import 'package:oasis/views/shared/title_text.dart';
+import 'package:oasis/views/shared/text/default_text.dart';
+import 'package:oasis/views/shared/dots/dots.dart';
+import 'package:oasis/views/shared/text/title_text.dart';
 import 'package:oasis/views/ui/preloader/preloader_screen_third.dart';
 import 'package:oasis/views/ui/sign/sign_in.dart';
 
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
-import '../../shared/preloader_button.dart';
+import '../../shared/button/preloader_button.dart';
 
 class PreloaderScreenSecond extends StatefulWidget {
   const PreloaderScreenSecond({super.key});
@@ -53,7 +53,7 @@ class _PreloaderScreenSecondState extends State<PreloaderScreenSecond> {
           Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/image/onboardingtwo.png"),
+                    image: AssetImage("assets/image/onboarding/onboardingtwo.png"),
                     fit: BoxFit.cover
                 )
             ),

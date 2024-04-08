@@ -3,10 +3,10 @@ import 'package:oasis/controllers/auth_controller.dart';
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
 import '../../shared/button/button.dart';
-import '../../shared/default_text.dart';
+import '../../shared/text/default_text.dart';
 import '../../shared/input/input_field.dart';
 import '../../shared/input/input_field_with_icon.dart';
-import '../../shared/title_text.dart';
+import '../../shared/text/title_text.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});

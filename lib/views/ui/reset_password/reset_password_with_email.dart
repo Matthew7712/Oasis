@@ -3,9 +3,9 @@ import 'package:oasis/views/shared/button/button.dart';
 import 'package:oasis/views/ui/reset_password/new_password.dart';
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
-import '../../shared/default_text.dart';
+import '../../shared/text/default_text.dart';
 import '../../shared/input/input_field.dart';
-import '../../shared/title_text.dart';
+import '../../shared/text/title_text.dart';
 
 class ResetPasswordWithEmail extends StatelessWidget {
   const ResetPasswordWithEmail({super.key});

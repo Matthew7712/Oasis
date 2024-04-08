@@ -5,8 +5,8 @@ import 'package:oasis/views/ui/reset_password/new_password.dart';
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
 import '../../shared/button/button.dart';
-import '../../shared/default_text.dart';
-import '../../shared/title_text.dart';
+import '../../shared/text/default_text.dart';
+import '../../shared/text/title_text.dart';
 
 class ResetPasswordWithPhone extends StatelessWidget {
   const ResetPasswordWithPhone({super.key});

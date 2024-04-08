@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:oasis/services/dimensions.dart';
-import 'package:oasis/views/shared/default_text.dart';
-import 'package:oasis/views/shared/dots.dart';
-import 'package:oasis/views/shared/preloader_button.dart';
-import 'package:oasis/views/shared/title_text.dart';
+import 'package:oasis/views/shared/text/default_text.dart';
+import 'package:oasis/views/shared/dots/dots.dart';
+import 'package:oasis/views/shared/button/preloader_button.dart';
+import 'package:oasis/views/shared/text/title_text.dart';
 import 'package:oasis/views/ui/preloader/preloader_screen_second.dart';
 import 'package:oasis/views/ui/sign/sign_in.dart';
 
@@ -56,7 +56,7 @@ class _PreloaderScreenState extends State<PreloaderScreen> {
           Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/image/onboardingone.png"),
+                    image: AssetImage("assets/image/onboarding/onboardingone.png"),
                     fit: BoxFit.cover
                 )
             ),

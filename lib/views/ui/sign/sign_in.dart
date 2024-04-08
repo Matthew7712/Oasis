@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oasis/controllers/auth_controller.dart';
 import 'package:oasis/views/shared/button/button.dart';
-import 'package:oasis/views/shared/default_text.dart';
+import 'package:oasis/views/shared/text/default_text.dart';
 import 'package:oasis/views/shared/input/input_field.dart';
 import 'package:oasis/views/shared/input/input_field_with_icon.dart';
-import 'package:oasis/views/shared/title_text.dart';
+import 'package:oasis/views/shared/text/title_text.dart';
 import 'package:oasis/views/ui/reset_password/forgot_password.dart';
 import 'package:oasis/views/ui/sign/sign_up.dart';
 

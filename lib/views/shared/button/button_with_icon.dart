@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:oasis/views/shared/title_text.dart';
+import 'package:oasis/views/shared/text/title_text.dart';
 
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';

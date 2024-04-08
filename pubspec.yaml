@@ -44,6 +44,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.9
   flutter_native_splash: ^2.4.0
+  carousel_slider: ^4.2.1
+  google_nav_bar: ^5.0.6
 
 #flutter_native_splash:
 #  android: true
@@ -90,6 +92,10 @@ flutter:
     - assets/image/
     - assets/image/sign/
     - assets/image/greeting/
+    - assets/image/onboarding/
+    - assets/image/home/slider/
+    - assets/image/home/card/
+    - assets/image/home/hotel/
   fonts:
     - family: Montserrat, Lato
       fonts:

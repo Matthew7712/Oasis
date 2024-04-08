@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:oasis/views/shared/default_text.dart';
-import 'package:oasis/views/shared/dots.dart';
-import 'package:oasis/views/shared/title_text.dart';
+import 'package:oasis/views/shared/text/default_text.dart';
+import 'package:oasis/views/shared/dots/dots.dart';
+import 'package:oasis/views/shared/text/title_text.dart';
 import 'package:oasis/views/ui/sign/sign_in.dart';
 
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
-import '../../shared/preloader_button.dart';
+import '../../shared/button/preloader_button.dart';
 
 class PreloaderScreenThird extends StatefulWidget {
   const PreloaderScreenThird({super.key});
@@ -37,7 +37,7 @@ class _PreloaderScreenThirdState extends State<PreloaderScreenThird> {
           Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/image/onboardingthree.png"),
+                    image: AssetImage("assets/image/onboarding/onboardingthree.png"),
                     fit: BoxFit.cover
                 )
             ),

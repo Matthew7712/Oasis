@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
-import '../default_text.dart';
-import '../title_text.dart';
+import '../text/default_text.dart';
+import '../text/title_text.dart';
 
 class ForgotPlate extends StatefulWidget {
   final String title;

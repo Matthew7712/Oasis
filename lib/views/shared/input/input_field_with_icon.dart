@@ -30,10 +30,10 @@ class _InputFieldWithIconState extends State<InputFieldWithIcon> {
         color: AppColors.inputTextColor,
       ),
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(vertical: 15.5, horizontal: 16),
+        contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 16),
         prefixIcon: widget.prefixOrSuffix ? widget.iconData : null,
         suffix: widget.prefixOrSuffix ? null : widget.iconData,
-        suffixIconColor: AppColors.inputBorderColor,
+        suffixIconColor: activeIcon ? AppColors.mainColor : AppColors.inputBorderColor,
         prefixIconColor: activeIcon ? AppColors.mainColor : AppColors.inputBorderColor,
         filled: true,
         fillColor: AppColors.white,

@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:oasis/services/dimensions.dart';
-import 'package:oasis/views/shared/default_text.dart';
-import 'package:oasis/views/ui/greeting.dart';
+import 'package:oasis/views/shared/text/default_text.dart';
+import 'package:oasis/views/ui/home/home_screen.dart';
 import 'package:oasis/views/ui/preloader/preloader_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,7 +29,7 @@ class AuthController extends GetxController{
       print("Login page");
       Get.offAll(()=>const PreloaderScreen());
     } else{
-      Get.offAll(()=>const GreetingScreen());
+      Get.offAll(()=>const HomeScreen());
     }
   }
 
