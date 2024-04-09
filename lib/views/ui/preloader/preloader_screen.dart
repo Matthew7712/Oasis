@@ -67,7 +67,7 @@ class _PreloaderScreenState extends State<PreloaderScreen> {
               alignment: Alignment.topLeft,
               child: GestureDetector(
                   onTap: skip,
-                  child: const DefaultText(text: "Skip", color: AppColors.white, fontSize: 20, fontWeight: FontWeight.w400)
+                  child: DefaultText(text: "Skip", color: AppColors.white, fontSize: Dimensions.font20, fontWeight: FontWeight.w400)
               ),
             ),
           ),

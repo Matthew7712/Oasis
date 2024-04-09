@@ -29,6 +29,7 @@ class Dimensions{
   static double buttonHeight50 = screenHeight/(screenHeight / 50);
 
   //fontsize
+  static double font10 = screenHeight/(screenHeight / 10);
   static double font12 = screenHeight/(screenHeight / 12);
   static double font14 = screenHeight/(screenHeight / 14);
   static double font16 = screenHeight/(screenHeight / 16);
@@ -36,6 +37,7 @@ class Dimensions{
   static double font20 = screenHeight/(screenHeight / 20);
   static double font24 = screenHeight/(screenHeight / 24);
   static double font26 = screenHeight/ (screenHeight / 26);
+  static double font28 = screenHeight/ (screenHeight / 28);
   static double font32 = screenHeight/ (screenHeight / 32);
   static double font42 = screenHeight/ (screenHeight / 42);
   static double font48 = screenHeight/ (screenHeight / 48);

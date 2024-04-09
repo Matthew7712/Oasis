@@ -96,6 +96,7 @@ flutter:
     - assets/image/home/slider/
     - assets/image/home/card/
     - assets/image/home/hotel/
+    - assets/image/country/
   fonts:
     - family: Montserrat, Lato
       fonts:

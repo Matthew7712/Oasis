@@ -57,35 +57,38 @@ class _HomeSliderState extends State<HomeSlider> {
         )
     ),
   );
-  Widget buildContent(int activeIndex) => Padding(
-    padding: EdgeInsets.symmetric(vertical: Dimensions.vertical30, horizontal: Dimensions.horizontal24),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TitleText(title: imagesPath[activeIndex][1], color: AppColors.white, fontSize: Dimensions.font32, fontWeight: FontWeight.w700),
-        const SizedBox(height: 5,),
-        RichText(
-            text: TextSpan(
-                children: [
-                  TextSpan(text: imagesPath[activeIndex][2], style: TextStyle(color: AppColors.white, fontSize: Dimensions.font16, fontWeight: FontWeight.w400)),
-                  TextSpan(text: imagesPath[activeIndex][3], style: TextStyle(color: AppColors.white, fontSize: Dimensions.font16, fontWeight: FontWeight.w400))
-                ]
-            )
-        ),
-        SizedBox(height: Dimensions.height25,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            SmallButton(text: "View detail", event: (){
-              AuthController.instance.logOut();
-            }),
-            SliderDots(activeDot: activeIndex.toDouble()),
-          ],
-        )
-      ],
-    ),
-  );
+  Widget buildContent(int activeIndex) {
+    double width = MediaQuery.of(context).size.width;
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: Dimensions.vertical30, horizontal: Dimensions.horizontal24),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TitleText(title: imagesPath[activeIndex][1], color: AppColors.white, fontSize: width < 325 ? Dimensions.font24 : width < 375 ? Dimensions.font28 : Dimensions.font32, fontWeight: FontWeight.w700),
+          SizedBox(height: width < 375 ? 2 : 5,),
+          RichText(
+              text: TextSpan(
+                  children: [
+                    TextSpan(text: imagesPath[activeIndex][2], style: TextStyle(color: AppColors.white, fontSize: width < 375 ? Dimensions.font14 : Dimensions.font16, fontWeight: FontWeight.w400)),
+                    TextSpan(text: imagesPath[activeIndex][3], style: TextStyle(color: AppColors.white, fontSize: width < 375 ? Dimensions.font14 : Dimensions.font16, fontWeight: FontWeight.w400))
+                  ]
+              )
+          ),
+          SizedBox(height: width < 325 ? Dimensions.height15 : width < 375 ? Dimensions.height20 :  Dimensions.height25,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              SmallButton(text: "View detail", event: (){
+                AuthController.instance.logOut();
+              }),
+              SliderDots(activeDot: activeIndex.toDouble()),
+            ],
+          )
+        ],
+      ),
+    );
+  }
 }
 
