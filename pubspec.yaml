@@ -46,6 +46,10 @@ dependencies:
   flutter_native_splash: ^2.4.0
   carousel_slider: ^4.2.1
   google_nav_bar: ^5.0.6
+  google_maps_flutter: ^2.0.0
+  json_serializable: ^6.7.1
+  json_annotation: ^4.8.1
+  build_runner: ^2.4.9
 
 #flutter_native_splash:
 #  android: true
@@ -96,7 +100,8 @@ flutter:
     - assets/image/home/slider/
     - assets/image/home/card/
     - assets/image/home/hotel/
-    - assets/image/country/
+    - assets/image/country/japan/
+    - assets/locations.json
   fonts:
     - family: Montserrat, Lato
       fonts:

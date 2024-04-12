@@ -32,4 +32,5 @@ class AppColors{
   static const tagBackgroundColor = Color(0xFFF4F4F4);
 
   static const iconColor = Color(0xFF121212);
+  static const iconBackgroundColor = Color(0xFFF4F4F4);
 }
