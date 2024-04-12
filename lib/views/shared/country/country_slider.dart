@@ -6,7 +6,7 @@ import '../../../services/dimensions.dart';
 class CountrySlider extends StatefulWidget {
   final String title;
   final List list;
-  const CountrySlider({super.key, required this.title, required this.list});
+  const CountrySlider({super.key, this.title = '', required this.list});
 
   @override
   State<CountrySlider> createState() => _CountrySliderState();

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class MyRatingBar extends StatelessWidget {
-  const MyRatingBar({super.key});
+  final double rating;
+  const MyRatingBar({super.key, this.rating = 0});
 
   @override
   Widget build(BuildContext context) {
-    double initialRating = 0;
     double width = MediaQuery.of(context).size.width;
     return RatingBar.builder(
-      initialRating: initialRating,
+      initialRating: rating,
       minRating: 1,
       direction: Axis.horizontal,
       allowHalfRating: true,
@@ -22,7 +22,7 @@ class MyRatingBar extends StatelessWidget {
         color: Colors.amber,
       ),
       onRatingUpdate: (rating) {
-        initialRating = rating;
+        rating = rating;
       },
     );
   }

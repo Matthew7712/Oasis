@@ -8,7 +8,13 @@ import '../../../services/appcolors.dart';
 class CountryCard extends StatelessWidget {
   final AssetImage assetImage;
   final String title;
-  const CountryCard({super.key, required this.assetImage, required this.title});
+  final String subTitle;
+  final String location;
+  final String time;
+  final List<AssetImage> images;
+  final double latitude;
+  final double longitude;
+  const CountryCard({super.key, required this.assetImage, required this.title, required this.subTitle , required this.images, required this.location, required this.time, this.longitude =0.0, this.latitude = 0.0});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +25,16 @@ class CountryCard extends StatelessWidget {
           context,
           PageRouteBuilder(
             transitionDuration: const Duration(milliseconds: 500),
-            pageBuilder: (_, __, ___) => CountryScreen(),
+            pageBuilder: (_, __, ___) => CountryScreen(
+              images: images,
+              assetImage: assetImage,
+              title: subTitle,
+              subTitle: title,
+              location: location,
+              time: time,
+              longitude: longitude,
+              latitude: latitude,
+            ),
             transitionsBuilder: (_, animation, __, child) {
               return FadeTransition(
                 opacity: animation,

@@ -24,6 +24,7 @@ class _HomeSliderState extends State<HomeSlider> {
   ];
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Stack(
       alignment: Alignment.bottomLeft,
@@ -35,7 +36,7 @@ class _HomeSliderState extends State<HomeSlider> {
               return buildImage(urlImage, index);
             },
             options: CarouselOptions(
-                height: height * 0.55,
+                height: width < 325 ? height * 0.75 : width < 360 ? height * 0.65 : height * 0.55,
                 viewportFraction: 1,
                 // reverse: true,
                 autoPlayAnimationDuration: const Duration(milliseconds: 3000),
