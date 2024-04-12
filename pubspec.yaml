@@ -31,26 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  firebase_core: ^2.20.0
-  firebase_auth: ^4.12.0
-  get: ^4.6.6
-  dots_indicator: ^2.0.0
-  flutter_rating_bar: ^4.0.1
-  provider: ^6.1.1
-  cached_network_image: ^3.3.1
-  page_transition: ^2.1.0
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  flutter_svg: ^2.0.9
-  flutter_native_splash: ^2.4.0
-  carousel_slider: ^4.2.1
-  google_nav_bar: ^5.0.6
-  google_maps_flutter: ^2.0.0
-  json_serializable: ^6.7.1
-  json_annotation: ^4.8.1
-  build_runner: ^2.4.9
-
 #flutter_native_splash:
 #  android: true
 #  ios: true
@@ -65,8 +45,35 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_launcher_icons: "^0.13.1"
-  flutter_lints: ^2.0.0
+  #Auth packages
+  firebase_core: ^2.20.0
+  firebase_auth: ^4.12.0
+  google_sign_in: ^6.2.1
+
+  #Packages for work with image
+  cached_network_image: ^3.3.1
+  carousel_slider: ^4.2.1
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^2.0.9
+
+  #other packages
+  get: ^4.6.6
+  dots_indicator: ^2.0.0
+  flutter_rating_bar: ^4.0.1
+  provider: ^6.1.1
+  page_transition: ^2.1.0
+  flutter_native_splash: ^2.4.0
+  table_calendar: ^3.1.1
+
+  #  Google map package
+  google_nav_bar: ^5.0.6
+  google_maps_flutter: ^2.0.0
+
+  #  Json package for works with json
+  json_serializable: ^6.7.1
+  json_annotation: ^4.8.1
+  build_runner: ^2.4.9
+
 
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -101,6 +108,7 @@ flutter:
     - assets/image/home/card/
     - assets/image/home/hotel/
     - assets/image/country/japan/
+    - assets/image/order/
     - assets/locations.json
   fonts:
     - family: Montserrat, Lato

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oasis/controllers/auth_controller.dart';
@@ -9,10 +8,13 @@ import 'package:oasis/views/shared/input/input_field_with_icon.dart';
 import 'package:oasis/views/shared/text/title_text.dart';
 import 'package:oasis/views/ui/reset_password/forgot_password.dart';
 import 'package:oasis/views/ui/sign/sign_up.dart';
-
+import 'package:get/get.dart';
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
 import '../../shared/button/button_with_icon.dart';
+import '../../shared/modal_window.dart';
+import '../home/home_screen.dart';
+import '../preloader/preloader_screen.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -122,27 +124,23 @@ class _SignInState extends State<SignIn> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                             GestureDetector(
-                              onTap: (){
-                                showDialog(
-                                    context: context,
-                                    builder: (BuildContext context){
-                                      return AnimatedContainer(
-                                          duration: const Duration(seconds: 1),
-                                          curve: Curves.bounceInOut,
-                                          child: Center(
-                                            child: AlertDialog(
-                                              title: TitleText(title: "Message", color: AppColors.titleColor, fontSize: Dimensions.font24, fontWeight: FontWeight.w600),
-                                              content: DefaultText(text: "Coming soon !", color: AppColors.textColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400),
-                                              actions: <Widget>[
-                                                Button(text: "Ok", event: (){
-                                                  Navigator.of(context).pop();
-                                                },)
-                                              ],
-                                            ),
-                                          ),
-                                      );
-                                    }
-                                );
+                              onTap: () async {
+                                try{
+                                  final user = await AuthController.loginWithGoogle();
+                                  if(user == null && mounted){
+                                    Get.offAll(()=>const PreloaderScreen());
+                                  } else{
+                                    Get.offAll(()=>const HomeScreen());
+                                  }
+                                } catch (e){
+                                  e.printError();
+                                  Get.snackbar("About user", "User message",
+                                      backgroundColor: AppColors.redColor,
+                                      snackPosition: SnackPosition.BOTTOM,
+                                      titleText: DefaultText(text: "Google account authorization failed", color: AppColors.white, fontSize: Dimensions.font24, fontWeight: FontWeight.w400),
+                                      messageText: DefaultText(text: e.toString(), color: AppColors.white, fontSize: Dimensions.font16, fontWeight: FontWeight.w400)
+                                  );
+                                }
                               },
                               child: ButtonWithIcon(
                                 text: "Google",
@@ -163,17 +161,7 @@ class _SignInState extends State<SignIn> {
                                         return AnimatedContainer(
                                           duration: const Duration(seconds: 1),
                                           curve: Curves.bounceInOut,
-                                          child: Center(
-                                            child: AlertDialog(
-                                              title: TitleText(title: "Message", color: AppColors.titleColor, fontSize: Dimensions.font24, fontWeight: FontWeight.w600),
-                                              content: DefaultText(text: "Coming soon !", color: AppColors.textColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400),
-                                              actions: <Widget>[
-                                                Button(text: "Ok", event: (){
-                                                  Navigator.of(context).pop();
-                                                },)
-                                              ],
-                                            ),
-                                          ),
+                                          child: ModalWindow(),
                                         );
                                       }
                                   );

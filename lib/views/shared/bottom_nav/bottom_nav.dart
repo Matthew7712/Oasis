@@ -4,6 +4,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
 import '../../ui/home/home_screen.dart';
+import '../map/map_card.dart';
 
 class MyBottomNavigationBar extends StatelessWidget {
   const MyBottomNavigationBar({super.key});
@@ -36,7 +37,19 @@ class MyBottomNavigationBar extends StatelessWidget {
               ),
             );
           } else if (index == 1) {
-            // Get.toNamed('/search');
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                transitionDuration: const Duration(milliseconds: 500),
+                pageBuilder: (_, __, ___) => const MapCard(assetImage: AssetImage('assets/image/country/japan/JapanImage1.png'), title: 'Japan\n', text: 'Tokyo', activeRating: 4,),
+                transitionsBuilder: (_, animation, __, child) {
+                  return FadeTransition(
+                    opacity: animation,
+                    child: child,
+                  );
+                },
+              ),
+            );
           } else if (index == 2) {
             // Get.toNamed('/favorite');
           } else if (index == 3) {

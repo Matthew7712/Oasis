@@ -4,13 +4,12 @@ import 'package:oasis/services/dimensions.dart';
 import 'package:oasis/views/shared/button/button.dart';
 import 'package:oasis/views/shared/country/country_info.dart';
 import 'package:oasis/views/shared/country/new_country_slider.dart';
-import 'package:oasis/views/shared/map/mini_map.dart';
 import 'package:oasis/views/shared/text/title_text.dart';
-import 'package:oasis/views/ui/order/choose_date.dart';
 
 import '../../../services/appcolors.dart';
+import '../map/mini_map.dart';
 
-class CountryScreen extends StatefulWidget {
+class HotelScreen extends StatefulWidget {
   final String title;
   final String subTitle;
   final String location;
@@ -19,13 +18,13 @@ class CountryScreen extends StatefulWidget {
   final List<AssetImage> images;
   final double latitude;
   final double longitude;
-  const CountryScreen({super.key, required this.subTitle ,required this.title ,required this.assetImage ,required this.images, required this.location, required this.time, this.longitude =0.0, this.latitude = 0.0});
+  const HotelScreen({super.key, required this.subTitle ,required this.title ,required this.assetImage ,required this.images, required this.location, required this.time, this.longitude =0.0, this.latitude = 0.0});
 
   @override
-  State<CountryScreen> createState() => _CountryScreenState();
+  State<HotelScreen> createState() => _HotelScreenState();
 }
 
-class _CountryScreenState extends State<CountryScreen> {
+class _HotelScreenState extends State<HotelScreen> {
   late GoogleMapController mapController;
 
   @override
@@ -61,7 +60,7 @@ class _CountryScreenState extends State<CountryScreen> {
                                 text: widget.subTitle,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: width < 325 ? Dimensions.font16 : width < 375 ? Dimensions.font18 : Dimensions.font20,
+                                    fontSize: width < 325 ? Dimensions.font12 : width < 375 ? Dimensions.font14 : Dimensions.font16,
                                     fontFamily: "Lato",
                                     color: AppColors.titleColor
                                 )
@@ -86,21 +85,7 @@ class _CountryScreenState extends State<CountryScreen> {
       bottomNavigationBar: Container(
           width: width - 48,
           padding: EdgeInsets.symmetric(horizontal: Dimensions.horizontal24, vertical: Dimensions.vertical20),
-          child: Button(text: "Book now", event: (){
-            Navigator.push(
-              context,
-              PageRouteBuilder(
-                transitionDuration: const Duration(milliseconds: 500),
-                pageBuilder: (_, __, ___) => const ChooseDate(),
-                transitionsBuilder: (_, animation, __, child) {
-                  return FadeTransition(
-                    opacity: animation,
-                    child: child,
-                  );
-                },
-              ),
-            );
-          })
+          child: Button(text: "Book now", event: (){})
       ),
     );
   }

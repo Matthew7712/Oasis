@@ -6,6 +6,7 @@ import 'package:oasis/views/ui/home/home_screen.dart';
 import 'package:oasis/views/ui/preloader/preloader_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../services/appcolors.dart';
 
@@ -32,6 +33,21 @@ class AuthController extends GetxController{
       Get.offAll(()=>const HomeScreen());
     }
   }
+
+  static Future<User?> loginWithGoogle() async{
+    final googleAccount = await GoogleSignIn().signIn();
+    final googleAuth = await googleAccount?.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    final userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+
+    return userCredential.user;
+  }
+
 
   void register(String email, String password) async {
     try{
