@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:oasis/views/shared/text/default_text.dart';
 import 'package:oasis/views/shared/text/title_text.dart';
 import 'package:oasis/views/ui/home/home_screen.dart';
 

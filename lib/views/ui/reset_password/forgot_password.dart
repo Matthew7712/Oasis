@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:oasis/views/shared/button/button.dart';
 import 'package:oasis/views/shared/forgot_plate/forgot_plate.dart';
 import 'package:oasis/views/ui/reset_password/reset_password_with_email.dart';

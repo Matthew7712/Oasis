@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:oasis/views/ui/favourite_screen.dart';
+import 'package:oasis/views/ui/profile_screen.dart';
+import 'package:oasis/views/ui/search_screen.dart';
+import 'package:provider/provider.dart';
 
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
 import '../../ui/home/home_screen.dart';
-import '../map/map_card.dart';
 
-class MyBottomNavigationBar extends StatelessWidget {
-  const MyBottomNavigationBar({super.key});
+class MyBottomNavigationBar extends StatefulWidget {
+  final int currentIndex;
+  const MyBottomNavigationBar({super.key, this.currentIndex = 0});
+
+  @override
+  State<MyBottomNavigationBar> createState() => _MyBottomNavigationBarState();
+}
+
+class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    // final navIndexProvider = Provider.of<NavIndexProvider>(context);
     return Padding(
       padding: EdgeInsets.symmetric(vertical: width > 425 ? 15 : 10, horizontal: width > 425 ? 15 :width > 375 ? 10 : 8),
       child: GNav(
@@ -22,38 +33,63 @@ class MyBottomNavigationBar extends StatelessWidget {
         tabBorderRadius: Dimensions.radius50,
         tabBackgroundColor: Colors.teal.shade100.withOpacity(0.8),
         onTabChange: (index){
+          // navIndexProvider.setIndex(index);
           if (index == 0) {
-            Navigator.push(
-              context,
-              PageRouteBuilder(
-                transitionDuration: const Duration(milliseconds: 500),
-                pageBuilder: (_, __, ___) => const HomeScreen(),
-                transitionsBuilder: (_, animation, __, child) {
-                  return FadeTransition(
-                    opacity: animation,
-                    child: child,
-                  );
-                },
-              ),
-            );
+          Navigator.pushReplacement(
+          context,
+          PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 500),
+          pageBuilder: (_, __, ___) => const HomeScreen(),
+          transitionsBuilder: (_, animation, __, child) {
+          return FadeTransition(
+          opacity: animation,
+          child: child,
+          );
+          },
+          ),
+          );
           } else if (index == 1) {
-            Navigator.push(
-              context,
-              PageRouteBuilder(
-                transitionDuration: const Duration(milliseconds: 500),
-                pageBuilder: (_, __, ___) => const MapCard(assetImage: AssetImage('assets/image/country/japan/JapanImage1.png'), title: 'Japan\n', text: 'Tokyo', activeRating: 4,),
-                transitionsBuilder: (_, animation, __, child) {
-                  return FadeTransition(
-                    opacity: animation,
-                    child: child,
-                  );
-                },
-              ),
-            );
+          Navigator.pushReplacement(
+          context,
+          PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 500),
+          pageBuilder: (_, __, ___) => const SearchScreen(),
+          transitionsBuilder: (_, animation, __, child) {
+          return FadeTransition(
+          opacity: animation,
+          child: child,
+          );
+          },
+          ),
+          );
           } else if (index == 2) {
-            // Get.toNamed('/favorite');
+          Navigator.pushReplacement(
+          context,
+          PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 500),
+          pageBuilder: (_, __, ___) => const FavouriteScreen(),
+          transitionsBuilder: (_, animation, __, child) {
+          return FadeTransition(
+          opacity: animation,
+          child: child,
+          );
+          },
+          ),
+          );
           } else if (index == 3) {
-            // Get.toNamed('/profile');
+          Navigator.pushReplacement(
+          context,
+          PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 500),
+          pageBuilder: (_, __, ___) => const ProfileScreen(),
+          transitionsBuilder: (_, animation, __, child) {
+          return FadeTransition(
+          opacity: animation,
+          child: child,
+          );
+          },
+          ),
+          );
           }
         },
         // tabActiveBorder: Border.all(width: 1, color: Colors.black, style: BorderStyle.solid),
@@ -67,3 +103,16 @@ class MyBottomNavigationBar extends StatelessWidget {
     );
   }
 }
+
+
+// class NavIndexProvider with ChangeNotifier {
+//   int _currentIndex = 0;
+//
+//   int get currentIndex => _currentIndex;
+//
+//   void setIndex(int index) {
+//     _currentIndex = index;
+//     notifyListeners();
+//   }
+// }
+

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:oasis/controllers/auth_controller.dart';
 import 'package:oasis/services/appcolors.dart';
 import 'package:oasis/views/shared/button/button.dart';
 import 'package:oasis/views/shared/text/default_text.dart';

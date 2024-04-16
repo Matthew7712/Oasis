@@ -37,7 +37,7 @@ class _MySearchBarState extends State<MySearchBar> {
         suffixIconColor: activeIcon ? AppColors.mainColor : AppColors.inputBorderColor,
         prefixIconColor: activeIcon ? AppColors.mainColor : AppColors.inputBorderColor,
         filled: true,
-        fillColor: AppColors.white,
+        fillColor: Color(0xFFFAFAFA),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: AppColors.inputBorderColor,

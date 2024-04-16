@@ -6,6 +6,7 @@ class Dimensions{
   static double get screenWidth => Get.context!.width;
 
   //dynamic height
+  static double height5 = screenHeight/(screenHeight / 5);
   static double height10 = screenHeight/(screenHeight / 10);
   static double height15 = screenHeight/(screenHeight / 15);
   static double height20 = screenHeight/(screenHeight / 20);

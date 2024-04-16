@@ -28,7 +28,6 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
-    bool isOverlayVisible = false;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(

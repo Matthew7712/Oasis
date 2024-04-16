@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oasis/views/shared/counter.dart';
-import 'package:oasis/views/shared/greeting_modal_window.dart';
 import 'package:oasis/views/shared/text/default_text.dart';
 import 'package:oasis/views/ui/order/access_screen.dart';
 
