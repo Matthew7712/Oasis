@@ -140,7 +140,6 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: MyBottomNavigationBar(currentIndex: _currentIndex,),
     );
   }
 }
