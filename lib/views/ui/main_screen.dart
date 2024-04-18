@@ -28,7 +28,12 @@ class _MainScreenState extends State<MainScreen> {
     return Consumer<BottomNavigationBarNotifier>(
         builder: (context ,mainScreenPage,child) => Scaffold(
           backgroundColor: Colors.white,
-          body: pageList[mainScreenPage.currentIndex],
+          body: AnimatedSwitcher(
+            switchInCurve: Curves.easeInOut,
+            switchOutCurve: Curves.easeInOut,
+            duration: Duration(milliseconds: 1000),
+            child: pageList[mainScreenPage.currentIndex],
+          ),
           bottomNavigationBar: const MyBottomNavigationBar(),
         )
     );

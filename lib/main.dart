@@ -1,3 +1,4 @@
+import 'package:oasis/controllers/favorite_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,7 @@ Future<void> main() async{
     runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => BottomNavigationBarNotifier()),
+        ChangeNotifierProvider(create: (context) => FavoriteNotifier()),
       ],
       child: const MyApp(),
     ));

@@ -36,7 +36,6 @@ class _HotelScreenState extends State<HotelScreen> {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            NewCountrySlider(assetImage: widget.assetImage, images: widget.images,),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: Dimensions.horizontal24, vertical: Dimensions.vertical10),
               child: Column(

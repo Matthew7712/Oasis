@@ -64,6 +64,7 @@ dev_dependencies:
   page_transition: ^2.1.0
   flutter_native_splash: ^2.4.0
   table_calendar: ^3.1.1
+  flutter_slidable: ^3.1.0
 
   #  Google map package
   google_nav_bar: ^5.0.6
@@ -113,6 +114,7 @@ flutter:
     - assets/image/country/japan/
     - assets/image/order/
     - assets/locations.json
+    - assets/json/country.json
   fonts:
     - family: Montserrat, Lato
       fonts:

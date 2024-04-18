@@ -1,66 +1,28 @@
 [
   {
     "id" : "0",
-    "name" : "Nike Dunk Low Retro",
-    "category" : "men's shoes",
+    "address" : "Japan",
+    "name" : "Tokyo",
     "imageUrl": [
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/30ed2748-cf6a-4697-a59f-105bbc4de8dc/dunk-low-retro-mens-shoes-87q0hf.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b8083f2f-0933-4c11-9438-5497d751ce62/dunk-low-retro-mens-shoes-87q0hf.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/ebd299fe-f5b4-45c6-9bf5-88bce1dc9878/dunk-low-retro-mens-shoes-87q0hf.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/ff34d958-eebb-44b0-b5b8-1f2e6cc9a7ae/dunk-low-retro-mens-shoes-87q0hf.png"
-
+      "assets/image/country/japan/JapanImage1.png",
+      "assets/image/country/japan/JapanImage2.png",
+      "assets/image/country/japan/JapanImage3.png",
+      "assets/image/country/japan/JapanImage4.png",
+      "assets/image/country/japan/Japan6.jpg"
     ],
-    "sizes" : [
-      {"size" : "6.0", "isSelected" : false },
-      {"size" : "6.5", "isSelected" : false },
-      {"size" : "7.0", "isSelected" : false },
-      {"size" : "7.5", "isSelected" : false },
-      {"size" : "8.0", "isSelected" : false },
-      {"size" : "8.5", "isSelected" : false },
-      {"size" : "9.0", "isSelected" : false },
-      {"size" : "9.5", "isSelected" : false },
-      {"size" : "10.0", "isSelected" : false },
-      {"size" : "10.5", "isSelected" : false },
-      {"size" : "11.0", "isSelected" : false },
-      {"size" : "11.5", "isSelected" : false },
-      {"size" : "12.0", "isSelected" : false },
-      {"size" : "12.5", "isSelected" : false },
-      {"size" : "13.0", "isSelected" : false },
-      {"size" : "14.0", "isSelected" : false },
-      {"size" : "14.5", "isSelected" : false },
-      {"size" : "15.5", "isSelected" : false },
-      {"size" : "16.5", "isSelected" : false }
-    ],
-    "price": "115",
-    "description" : "Created for the hardwood but taken to the streets, the Nike Dunk Low Retro returns with crisp overlays and original team colors. This basketball icon channels '80s vibes with premium leather in the upper that looks good and breaks in even better. Modern footwear technology helps bring the comfort into the 21st century.",
-    "title" : "Nike Dunk Low Retro"
+    "region" : "Asia"
   },
-
   {
     "id" : "1",
-    "name" : "Nike Air Max 1",
-    "category" : "men's shoes",
+    "address" : "Italy",
+    "name" : "Rim",
     "imageUrl": [
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/136d57c0-9303-44e0-a692-76f6c1c9c27d/air-max-1-mens-shoes-2C5sX2.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/5ec32640-15db-409a-9bfe-32a4550c1c77/air-max-1-mens-shoes-2C5sX2.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/bdc4e335-61e2-4747-b476-8f1ff4bd18e5/air-max-1-mens-shoes-2C5sX2.png",
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/05e947be-6be8-46de-8a49-14009c3e89ab/air-max-1-mens-shoes-2C5sX2.png"
+      "assets/image/country/japan/JapanImage1.png",
+      "assets/image/country/japan/JapanImage2.png",
+      "assets/image/country/japan/JapanImage3.png",
+      "assets/image/country/japan/JapanImage4.png",
+      "assets/image/country/japan/JapanImage5.png"
     ],
-    "sizes" : [
-      {"size" : "6.0", "isSelected" : false },
-      {"size" : "6.5", "isSelected" : false },
-      {"size" : "7.0", "isSelected" : false },
-      {"size" : "7.5", "isSelected" : false },
-      {"size" : "8.0", "isSelected" : false },
-      {"size" : "8.5", "isSelected" : false },
-      {"size" : "9.0", "isSelected" : false },
-      {"size" : "9.5", "isSelected" : false },
-      {"size" : "10.0", "isSelected" : false },
-      {"size" : "10.5", "isSelected" : false },
-      {"size" : "11.0", "isSelected" : false }
-    ],
-    "price": "140",
-    "description" : "Meet the leader of the pack. Walking on clouds above the noise, the Air Max 1 blends timeless design with cushioned comfort. Sporting a fast-paced look, wavy mudguard and Nike Air, this classic icon hit the scene in ‘87 and continues to be the soul of the franchise today.",
-    "title" : "Nike Air Max 1"
+    "region" : "Europe"
   }
 ]

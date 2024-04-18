@@ -6,8 +6,9 @@ class FavoriteNotifier extends ChangeNotifier{
   List<dynamic> _favorites = [];
   List<dynamic> _fav = [];
   final _favBox = Hive.box('fav_box');
-  Future<void> createFavBox(Map<String, dynamic> newFavBox) async{
+  Future<void> createFavBox(Map<String, dynamic> newFavBox) async {
     await _favBox.add(newFavBox);
+    getFavorities();  // обновляем избранное после каждого изменения
   }
 
   List<dynamic> get ids => _ids;
@@ -29,7 +30,7 @@ class FavoriteNotifier extends ChangeNotifier{
       final item = _favBox.get(key);
       return {
         "key" : key,
-        "id" : "id"
+        "id" : item["id"]
       };
     }).toList();
 
@@ -53,15 +54,17 @@ class FavoriteNotifier extends ChangeNotifier{
         "key" : key,
         "id": item["id"],
         "name" : item["name"],
-        "category" : item["category"],
-        "price" : item["price"],
+        "address" : item["address"],
+        "region" : item["region"],
         "imageUrl" : item["imageUrl"]
       };
     }).toList();
     _fav = favData.reversed.toList();
   }
 
-  Future delete(int key) async{
+  Future delete(int key) async {
     await _favBox.delete(key);
+    getFavorities();
+    notifyListeners();// обновляем избранное после каждого изменения
   }
 }
