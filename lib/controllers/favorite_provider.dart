@@ -62,6 +62,10 @@ class FavoriteNotifier extends ChangeNotifier{
     _fav = favData.reversed.toList();
   }
 
+  void removeFavorite() {
+    notifyListeners();
+  }
+
   Future delete(int key) async {
     await _favBox.delete(key);
     getFavorities();

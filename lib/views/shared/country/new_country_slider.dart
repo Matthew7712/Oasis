@@ -139,7 +139,6 @@ class _NewCountrySliderState extends State<NewCountrySlider> with TickerProvider
                                         onTap: () {
                                           if (isFavorite == true) {
                                             setState(() {
-                                              isFavorite = false;
                                               int index = favoritesNotifier.favorites.indexWhere((fav) => fav['id'] == widget.id);
                                               if (index != -1) {
                                                 favoritesNotifier.favorites.removeAt(index);
@@ -166,12 +165,10 @@ class _NewCountrySliderState extends State<NewCountrySlider> with TickerProvider
                                                 "region" : countries.region,
                                                 "imageUrl" : countries.imageUrl[0],
                                               });
-                                              isFavorite = true;
-                                              print(isFavorite);
                                             });
                                           }
                                           setState(() {
-              
+
                                           });
                                         },
                                           child :isFavorite ? const Icon(Icons.favorite) : const Icon(Icons.favorite_outline)

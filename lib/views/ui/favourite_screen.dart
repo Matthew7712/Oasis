@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:oasis/services/dimensions.dart';
 import 'package:oasis/views/shared/text/default_text.dart';
 import 'package:oasis/views/shared/text/title_text.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:oasis/views/ui/main_screen.dart';
 import '../../controllers/favorite_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -22,7 +25,21 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
   void doNothing(int key) async{
     await _favBox.delete(key);
   }
-  bool isLoading = false;
+  Timer? _timer;
+  void startTimer() {
+    _timer = Timer(const Duration(seconds: 2), () {
+      if (mounted) {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => MainScreen()));
+        setState(() {});
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -59,29 +76,38 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                     endActionPane: ActionPane(
                       motion: const ScrollMotion(),
                       children: [
-                        Visibility(
-                          visible: isLoading,
-                          child: Container(
-                            width: 64,
-                            color: Colors.transparent,
-                            child: const Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                          ),
-                        ),
                         SlidableAction(
                           flex: 1,
                           onPressed: (context){
                             setState(() {
-                              isLoading = true;
-                            });
-                            setState(() {
+                              favoritesNotifier.favorites.removeWhere((element) => element == country["id"]);
+                              // delete(favoritesNotifier.favorites, "id");
                               doNothing(country["key"]);
                               cart.removeWhere((element) => element == country["id"]);
                             });
-                            setState(() {
-                              isLoading = false;
-                            });
+                            showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  content: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Container(
+                                      height: 64,
+                                        width: 64,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+                                            const CircularProgressIndicator(),
+                                          ],
+                                        )
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                            startTimer();
                           },
                           backgroundColor: AppColors.mainColor,
                           foregroundColor: Colors.white,

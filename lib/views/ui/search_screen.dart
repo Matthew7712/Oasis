@@ -77,7 +77,6 @@ class _SearchScreenState extends State<SearchScreen> {
     "Most Viewed",
     "Most Visited",
   ];
-  int _currentIndex = 1;
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
