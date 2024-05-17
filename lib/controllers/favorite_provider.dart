@@ -56,7 +56,11 @@ class FavoriteNotifier extends ChangeNotifier{
         "name" : item["name"],
         "address" : item["address"],
         "region" : item["region"],
-        "imageUrl" : item["imageUrl"]
+        "description" : item["description"],
+        "imageUrl" : item["imageUrl"],
+        "iconUrl" : item["iconUrl"],
+        "cost" : item["cost"],
+        "counter" : 1
       };
     }).toList();
     _fav = favData.reversed.toList();

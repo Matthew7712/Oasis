@@ -30,6 +30,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_local_notifications: ^17.1.0
+  shared_preferences: ^2.2.3
+  image_picker: ^1.1.1
+  intl: ^0.19.0
 
 #flutter_native_splash:
 #  android: true
@@ -49,6 +53,7 @@ dev_dependencies:
   firebase_core: ^2.20.0
   firebase_auth: ^4.12.0
   google_sign_in: ^6.2.1
+  firebase_messaging: ^14.9.1
 
   #Packages for work with image
   cached_network_image: ^3.3.1
@@ -97,6 +102,10 @@ flutter_launcher_icons:
     generate: true
     image_path: "assets/image/pelican.png"
 
+flutter_icons:
+  android: "assets/image/pelican.png"
+  ios: true
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -112,9 +121,18 @@ flutter:
     - assets/image/home/card/
     - assets/image/home/hotel/
     - assets/image/country/japan/
+    - assets/image/country/italy/
+    - assets/image/country/netherlands/
+    - assets/image/country/poland/
+    - assets/image/country/tailand/
+    - assets/image/country/vietnam/
+    - assets/image/country/greece/
+    - assets/image/country/turkey/
+    - assets/image/country/paris/
     - assets/image/order/
     - assets/locations.json
     - assets/json/country.json
+    - assets/json/hotel.json
   fonts:
     - family: Montserrat, Lato
       fonts:

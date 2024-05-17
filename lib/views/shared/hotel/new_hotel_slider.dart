@@ -1,37 +1,39 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oasis/models/country_model.dart';
 import 'package:oasis/views/ui/main_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../../controllers/favorite_provider.dart';
+import '../../../models/hotel_model.dart';
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
 import '../../../services/helper.dart';
 
-class NewCountrySlider extends StatefulWidget {
+class NewHotelSlider extends StatefulWidget {
   final String id;
-  const NewCountrySlider({super.key, required this.id});
+  const NewHotelSlider({super.key, required this.id});
 
   @override
-  State<NewCountrySlider> createState() => _NewCountrySliderState();
+  State<NewHotelSlider> createState() => _NewHotelSliderState();
 }
 
-class _NewCountrySliderState extends State<NewCountrySlider> with TickerProviderStateMixin{
+class _NewHotelSliderState extends State<NewHotelSlider> with TickerProviderStateMixin{
   int selectedIndex = 0;
-  late Future<Country> country;
+  late Future<Hotel> hotel;
   final _favBox = Hive.box('fav_box');
   bool isFavorite = false;
   void doNothing(int key) async{
     await _favBox.delete(key);
   }
-  void getCountry(){
-    country = Helper().getCountryById(widget.id);
+  void getHotel(){
+    hotel = Helper().getHotelById(widget.id);
   }
 
   @override
   void initState() {
     super.initState();
-    getCountry();
+    getHotel();
   }
   @override
   Widget build(BuildContext context) {
@@ -49,13 +51,11 @@ class _NewCountrySliderState extends State<NewCountrySlider> with TickerProvider
         "address" : item['address'],
         "region" : item['region'],
         "imageUrl" : item['imageUrl'],
-        "iconUrl" : item['iconUrl'],
-        "cost" : item['cost'],
       };
     }).toList();
     cart = cartData.reversed.toList();
-    return FutureBuilder<Country>(
-        future: country,
+    return FutureBuilder<Hotel>(
+        future: hotel,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const CircularProgressIndicator();
@@ -137,45 +137,42 @@ class _NewCountrySliderState extends State<NewCountrySlider> with TickerProvider
                                     builder: (context, favoritesNotifier, child){
                                       isFavorite = favoritesNotifier.favorites.any((fav) => fav['id'] == widget.id);
                                       return InkWell(
-                                        onTap: () {
-                                          if (isFavorite == true) {
-                                            setState(() {
-                                              int index = favoritesNotifier.favorites.indexWhere((fav) => fav['id'] == widget.id);
-                                              if (index != -1) {
-                                                favoritesNotifier.favorites.removeAt(index);
-                                                doNothing(favoritesNotifier.fav[index]["key"]);
-                                                cart.removeWhere((element) => element == favoritesNotifier.fav[index]["id"]);
-                                              }
-                                              Navigator.push((context), PageRouteBuilder(
-                                                transitionDuration: const Duration(milliseconds: 500),
-                                                pageBuilder: (_, __, ___) => const MainScreen(),
-                                                transitionsBuilder: (_, animation, __, child) {
-                                                  return FadeTransition(
-                                                    opacity: animation,
-                                                    child: child,
-                                                  );
-                                                },
-                                              ),);
-                                            });
-                                          } else {
-                                            setState(() {
-                                              favoritesNotifier.createFavBox({
-                                                "id" : countries.id,
-                                                "name" : countries.name,
-                                                "address" : countries.address,
-                                                "region" : countries.region,
-                                                "description" : countries.description,
-                                                "imageUrl" : countries.imageUrl[0],
-                                                "iconUrl" : countries.iconUrl,
-                                                "cost" : countries.cost,
+                                          onTap: () {
+                                            if (isFavorite == true) {
+                                              setState(() {
+                                                int index = favoritesNotifier.favorites.indexWhere((fav) => fav['id'] == widget.id);
+                                                if (index != -1) {
+                                                  favoritesNotifier.favorites.removeAt(index);
+                                                  doNothing(favoritesNotifier.fav[index]["key"]);
+                                                  cart.removeWhere((element) => element == favoritesNotifier.fav[index]["id"]);
+                                                }
+                                                Navigator.push((context), PageRouteBuilder(
+                                                  transitionDuration: const Duration(milliseconds: 500),
+                                                  pageBuilder: (_, __, ___) => const MainScreen(),
+                                                  transitionsBuilder: (_, animation, __, child) {
+                                                    return FadeTransition(
+                                                      opacity: animation,
+                                                      child: child,
+                                                    );
+                                                  },
+                                                ),);
                                               });
-                                              print(countries.cost);
-                                            });
-                                          }
-                                          setState(() {
+                                            } else {
+                                              setState(() {
+                                                favoritesNotifier.createFavBox({
+                                                  "id" : countries.id,
+                                                  "name" : countries.name,
+                                                  "address" : countries.address,
+                                                  "region" : countries.region,
+                                                  "imageUrl" : countries.imageUrl[0],
+                                                });
+                                                print(cart);
+                                              });
+                                            }
+                                            setState(() {
 
-                                          });
-                                        },
+                                            });
+                                          },
                                           child :isFavorite ? const Icon(Icons.favorite) : const Icon(Icons.favorite_outline)
                                       );
                                     },

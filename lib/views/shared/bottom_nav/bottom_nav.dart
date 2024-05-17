@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:oasis/views/ui/favourite_screen.dart';
-import 'package:oasis/views/ui/profile_screen.dart';
-import 'package:oasis/views/ui/search_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../controllers/bottom_provider.dart';
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
-import '../../ui/home/home_screen.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({super.key});

@@ -1,0 +1,15 @@
+[
+  {
+    "id" : "0",
+    "address" : "Passalacqua\n",
+    "name" : "Lake Como",
+    "imageUrl": [
+      "assets/image/home/hotel/Frame 16.png",
+      "assets/image/home/hotel/Frame 17.png",
+      "assets/image/home/hotel/Frame 18.png",
+      "assets/image/home/hotel/Frame 19.png",
+      "assets/image/home/hotel/Frame 20.png"
+    ],
+    "region" : "Asia"
+  }
+]

@@ -33,4 +33,10 @@ class AppColors{
 
   static const iconColor = Color(0xFF121212);
   static const iconBackgroundColor = Color(0xFFF4F4F4);
+
+  //Icon colors
+  static const yellowIcon = Color(0xFFFFC107);
+  static const brownIcon = Color(0xFF936A5D);
+  static const blackIcon = Color(0xFF121212);
+  static const greyIcon = Color(0xFFBDBDBD);
 }

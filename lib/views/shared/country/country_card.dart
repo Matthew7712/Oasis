@@ -15,7 +15,8 @@ class CountryCard extends StatefulWidget {
   final List<AssetImage> images;
   final double latitude;
   final double longitude;
-  const CountryCard({super.key, required this.assetImage, required this.title, required this.subTitle , required this.images, required this.location, required this.time, this.longitude =0.0, this.latitude = 0.0});
+  final int index;
+  const CountryCard({super.key, required this.assetImage, required this.title, required this.subTitle , required this.images, required this.location, required this.time, this.longitude =0.0, this.latitude = 0.0, this.index = 0});
 
   @override
   State<CountryCard> createState() => _CountryCardState();
@@ -37,6 +38,7 @@ class _CountryCardState extends State<CountryCard> with TickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     return ClipRRect(
       clipBehavior: Clip.hardEdge,
@@ -56,6 +58,7 @@ class _CountryCardState extends State<CountryCard> with TickerProviderStateMixin
                 longitude: widget.longitude,
                 latitude: widget.latitude,
                 country: _country,
+                index: widget.index,
               ),
               transitionsBuilder: (_, animation, __, child) {
                 return FadeTransition(

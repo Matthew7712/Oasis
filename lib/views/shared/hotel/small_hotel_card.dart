@@ -7,7 +7,7 @@ import '../../../services/dimensions.dart';
 import '../../../services/helper.dart';
 import 'hotel_screen.dart';
 
-class HotelCard extends StatefulWidget {
+class SmallHotelCard extends StatefulWidget {
   final AssetImage assetImage;
   final String title;
   final String text;
@@ -16,13 +16,13 @@ class HotelCard extends StatefulWidget {
   final String time;
   final List<AssetImage> images;
 
-  const HotelCard({super.key, required this.assetImage, required this.title, required this.text, required this.description , required this.images, required this.location, required this.time});
+  const SmallHotelCard({super.key, required this.assetImage, required this.title, required this.text, required this.description , required this.images, required this.location, required this.time});
 
   @override
-  State<HotelCard> createState() => _HotelCardState();
+  State<SmallHotelCard> createState() => _SmallHotelCardState();
 }
 
-class _HotelCardState extends State<HotelCard> {
+class _SmallHotelCardState extends State<SmallHotelCard> {
   late Future<List<Hotel>> _hotel;
 
   void getHotel() {
@@ -50,8 +50,7 @@ class _HotelCardState extends State<HotelCard> {
               title: widget.title,
               subTitle: widget.description,
               location: widget.location,
-              time: widget.time,
-              hotel: _hotel,
+              time: widget.time, hotel: _hotel,
             ),
             transitionsBuilder: (_, animation, __, child) {
               return FadeTransition(
@@ -64,7 +63,7 @@ class _HotelCardState extends State<HotelCard> {
       },
       child: Container(
         width: width - 48,
-        height: width < 375 ? height * 0.24 : height * 0.21,
+        height: width < 375 ? height * 0.2 : height * 0.18,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(Dimensions.radius20),
           border: Border.all(width: 1, color: Colors.black),
@@ -75,7 +74,7 @@ class _HotelCardState extends State<HotelCard> {
           children: [
             Container(
               width: width * 0.4,
-              height: width < 375 ? height * 0.26 : height * 0.21,
+              height: width < 375 ? height * 0.2 : height * 0.18,
               clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(Dimensions.radius20), bottomLeft: Radius.circular(Dimensions.radius20)),
@@ -89,7 +88,7 @@ class _HotelCardState extends State<HotelCard> {
               padding: EdgeInsets.symmetric(horizontal: Dimensions.horizontal30 / 2, vertical: width < 325 ? 5 :  Dimensions.vertical30 / 2),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   RichText(text: TextSpan(
                       children: [
@@ -99,8 +98,6 @@ class _HotelCardState extends State<HotelCard> {
                   )),
                   const SizedBox(height: 5,),
                   DefaultText(text: widget.description, color: AppColors.titleColor, fontSize: width < 375 ? Dimensions.font10 :Dimensions.font12, fontWeight: FontWeight.w400),
-                  SizedBox(height: (width < 325 ? Dimensions.height10 : Dimensions.height15),),
-                  const MyRatingBar()
                 ],
               ),
             )

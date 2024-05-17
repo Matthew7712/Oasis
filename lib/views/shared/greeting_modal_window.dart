@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:oasis/views/shared/text/title_text.dart';
-import 'package:oasis/views/ui/home/home_screen.dart';
 
 import '../../services/appcolors.dart';
 import '../../services/dimensions.dart';
+import '../ui/main_screen.dart';
 import 'button/button.dart';
 
 class GreetingModalWindow extends StatelessWidget {
@@ -37,7 +37,7 @@ class GreetingModalWindow extends StatelessWidget {
                   context,
                   PageRouteBuilder(
                     transitionDuration: const Duration(milliseconds: 500),
-                    pageBuilder: (_, __, ___) => const HomeScreen(),
+                    pageBuilder: (_, __, ___) => const MainScreen(),
                     transitionsBuilder: (_, animation, __, child) {
                       return FadeTransition(opacity: animation, child: child,);
                     },

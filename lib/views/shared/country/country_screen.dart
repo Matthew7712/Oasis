@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:oasis/services/dimensions.dart';
 import 'package:oasis/views/shared/button/button.dart';
-import 'package:oasis/views/shared/country/favorite_card.dart';
 import 'package:oasis/views/shared/country/new_country_slider.dart';
-import 'package:oasis/views/ui/order/choose_date.dart';
+import 'package:oasis/views/ui/main_screen.dart';
+import 'package:provider/provider.dart';
 
+import '../../../controllers/active_ticket_provider.dart';
+import '../../../controllers/history_provider.dart';
 import '../../../models/country_model.dart';
 import '../../../services/appcolors.dart';
 import '../map/mini_map.dart';
@@ -22,7 +24,8 @@ class CountryScreen extends StatefulWidget {
   final double latitude;
   final double longitude;
   final Future<List<Country>> _country;
-  CountryScreen({super.key, required this.subTitle ,required this.title ,required this.assetImage ,required this.images, required this.location, required this.time, this.longitude =0.0, this.latitude = 0.0, required Future<List<Country>> country}) : _country = country;
+  final int index;
+  CountryScreen({super.key, required this.subTitle ,required this.title ,required this.assetImage ,required this.images, required this.location, required this.time, this.longitude =0.0, this.latitude = 0.0, required Future<List<Country>> country, required this.index}) : _country = country;
 
   @override
   State<CountryScreen> createState() => _CountryScreenState();
@@ -35,6 +38,10 @@ class _CountryScreenState extends State<CountryScreen> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    var historyNotifier = Provider.of<HistoryNotifier>(context);
+    historyNotifier.getAllData();
+    var ticketNotifier = Provider.of<TicketNotifier>(context);
+    ticketNotifier.getAllData();
     return Scaffold(
       backgroundColor: Colors.white,
       body: FutureBuilder<List<Country>>(
@@ -51,7 +58,7 @@ class _CountryScreenState extends State<CountryScreen> {
                 scrollDirection: Axis.horizontal,
                 physics: const BouncingScrollPhysics(),
                 itemBuilder: (context, index) {
-                  final country = snapshot.data![index];
+                  final country = snapshot.data![widget.index];
                   return Container(
                       width: width,
                       height: width < 325 ? height * 0.75 : width < 360
@@ -77,7 +84,7 @@ class _CountryScreenState extends State<CountryScreen> {
                                         RichText(text: TextSpan(
                                             children: [
                                               TextSpan(
-                                                  text: widget.title,
+                                                  text: country.name,
                                                   style: TextStyle(
                                                       fontWeight: FontWeight
                                                           .w600,
@@ -92,7 +99,7 @@ class _CountryScreenState extends State<CountryScreen> {
                                                   )
                                               ),
                                               TextSpan(
-                                                  text: widget.subTitle,
+                                                  text: country.address,
                                                   style: TextStyle(
                                                       fontWeight: FontWeight
                                                           .w500,
@@ -108,7 +115,7 @@ class _CountryScreenState extends State<CountryScreen> {
                                               )
                                             ]
                                         )),
-                                        TitleText(title: "\$500",
+                                        TitleText(title: "\$" + country.cost,
                                             color: AppColors.titleColor,
                                             fontSize: width < 325 ? Dimensions
                                                 .font24 : width < 375
@@ -140,19 +147,33 @@ class _CountryScreenState extends State<CountryScreen> {
                             padding: EdgeInsets.symmetric(horizontal: Dimensions
                                 .horizontal24, vertical: Dimensions.vertical20),
                             child: Button(text: "Book now", event: () {
+                              historyNotifier.createHistoryBox({
+                                "id" : country.id,
+                                "name" : country.name,
+                                "address" : country.address,
+                                "region" : country.region,
+                                "description" : country.description,
+                                "imageUrl" : country.imageUrl[0],
+                                "dateTime": country.dateTime,
+                                "cost" : country.cost,
+                              });
+                              ticketNotifier.createTicketBox({
+                                "id" : country.id,
+                                "name" : country.name,
+                                "address" : country.address,
+                                "region" : country.region,
+                                "description" : country.description,
+                                "imageUrl" : country.imageUrl[0],
+                                "dateTime": country.dateTime,
+                                "cost": country.cost,
+                              });
                               Navigator.push(
                                 context,
                                 PageRouteBuilder(
-                                  transitionDuration: const Duration(
-                                      milliseconds: 500),
-                                  pageBuilder: (_, __,
-                                      ___) => const ChooseDate(),
-                                  transitionsBuilder: (_, animation, __,
-                                      child) {
-                                    return FadeTransition(
-                                      opacity: animation,
-                                      child: child,
-                                    );
+                                  transitionDuration: const Duration(milliseconds: 500),
+                                  pageBuilder: (_, __, ___) => const MainScreen(),
+                                  transitionsBuilder: (_, animation, __, child) {
+                                    return FadeTransition(opacity: animation, child: child,);
                                   },
                                 ),
                               );
@@ -168,4 +189,3 @@ class _CountryScreenState extends State<CountryScreen> {
     );
   }
 }
-

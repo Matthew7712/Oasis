@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oasis/controllers/auth_controller.dart';
+import 'package:oasis/views/ui/profile/profile_screen.dart';
+import 'package:oasis/views/ui/sign/sign_in.dart';
 import '../../../services/appcolors.dart';
 import '../../../services/dimensions.dart';
 import '../../shared/button/button.dart';
@@ -75,7 +78,8 @@ class SignUp extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Button(text: "Register", event: (){
-                      AuthController.instance.register(emailController.text.trim(), passwordController.text.trim());
+                      AuthController.instance.register(emailController.text.trim(), passwordController.text.trim(), nameController.text.trim());
+                      ProfileScreen(name: nameController.text.trim());
                       // Navigator.push(
                       //   context,
                       //   PageRouteBuilder(
@@ -88,12 +92,26 @@ class SignUp extends StatelessWidget {
                       // );
                     }),
                     SizedBox(height: Dimensions.height25,),
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(text: "Have an account?", style: TextStyle(color: AppColors.textColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400)),
-                          TextSpan(text: " Sign In", style: TextStyle(color: AppColors.mainColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400)),
-                        ],
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            transitionDuration: const Duration(milliseconds: 500),
+                            pageBuilder: (_, __, ___) => const SignIn(),
+                            transitionsBuilder: (_, animation, __, child) {
+                              return FadeTransition(opacity: animation, child: child,);
+                            },
+                          ),
+                        );
+                      },
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(text: "Have an account?", style: TextStyle(color: AppColors.textColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400)),
+                            TextSpan(text: " Sign In", style: TextStyle(color: AppColors.mainColor, fontSize: Dimensions.font16, fontWeight: FontWeight.w400)),
+                          ],
+                        ),
                       ),
                     ),
                   ],

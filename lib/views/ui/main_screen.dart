@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oasis/views/shared/bottom_nav/bottom_nav.dart';
 import 'package:oasis/views/ui/favourite_screen.dart';
-import 'package:oasis/views/ui/profile_screen.dart';
+import 'package:oasis/views/ui/profile/profile_screen.dart';
 import 'package:oasis/views/ui/search_screen.dart';
 import 'package:provider/provider.dart';
 

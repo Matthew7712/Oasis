@@ -48,8 +48,15 @@ class AuthController extends GetxController{
     return userCredential.user;
   }
 
+  Future updateInfo() async{
+    try{
 
-  void register(String email, String password) async {
+    } on FirebaseException catch(e){
+
+    }
+  }
+
+  void register(String email, String password, String name) async {
     try{
       await auth.createUserWithEmailAndPassword(email: email, password: password);
     }catch(e){
